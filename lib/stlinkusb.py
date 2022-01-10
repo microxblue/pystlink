@@ -89,6 +89,7 @@ class StlinkUsbConnector():
             raise lib.stlinkex.StlinkException(
                 "Found multiple devices. Select one with -s SERIAL or -n INDEX")
         if self._dev:
+            self._dev.set_configuration()
             self._dbg.verbose("Connected to ST-Link/%4s, serial %s" % (
                  self._dev_type['version'],  self._get_serial()))
             return
